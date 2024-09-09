@@ -354,7 +354,7 @@ func accuracy(pt_infered []int, ct_infered []int) (acc float64) {
 }
 
 func accuracy_test() {
-	data := get_data()[:1]
+	data := get_data()[:100]
 	//fmt.Println(data)
 
 	fmt.Print("Inference on plaintext......")
