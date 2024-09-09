@@ -1,0 +1,7 @@
+//---------------------------------------
+// TIMING TESTS
+//---------------------------------------
+=> Aggregation on plaintext took: 2.013µs
+=> Aggregation on ciphertext took : 4.124573015s
+=> Inference on plaintext took : 7.644µs
+=> Inference on ciphertext took : 1m34.207224578s

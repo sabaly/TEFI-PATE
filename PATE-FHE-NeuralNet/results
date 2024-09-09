@@ -1,0 +1,12 @@
+//---------------------------------------
+// TIMING TESTS
+//---------------------------------------
+=> Aggregation on plaintext took: 1.052µs
+=> Aggregation on ciphertext took : 731.863897ms
+=> Inference on plaintext took : 7.884µs
+=> Inference on ciphertext took : 19.673643046s
+//---------------------------------------
+// ACCURACY TESTS
+//---------------------------------------
+=> Test size : 100
+97.00 % Inference with plaintext and inference with ciphertext are equal.

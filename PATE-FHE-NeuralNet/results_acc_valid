@@ -1,0 +1,5 @@
+//---------------------------------------
+// ACCURACY TESTS
+//---------------------------------------
+=> Test size : 100
+97.00 % Inference with plaintext and inference with ciphertext are equal.
