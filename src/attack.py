@@ -1,3 +1,13 @@
+"""
+@author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
+This program implements two literature attribut reconstruction attacks : baseline and the black-box attack.
+
+It implement also another attack I've imagined. It consists of using the teacher ensemble to predict the sensitive attribut using our 
+approach discribed in the report.pdf file (section 3.2.2). And aggregate their predictions.
+
+This file outputs the success rate of each attack.
+"""
 from teacher_ensemble import *
 from aggregator import *
 import warnings

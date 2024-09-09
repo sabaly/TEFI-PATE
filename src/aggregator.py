@@ -1,3 +1,8 @@
+"""
+@author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
+This file implement all aggregtaion function used in our experimentations.
+"""
 import numpy as np
 from analysis import mean
 

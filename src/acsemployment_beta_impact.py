@@ -1,3 +1,12 @@
+"""
+@author: hierno-mamoudou.sabaly@telecom-sudparis.eu
+
+This file experiments the impact of the parameter beta of the weighting vote approach.
+
+It's usage is similar to the fairnessimpact_acsemployment.py file.
+
+The resulting image will be in ../img/
+"""
 import sys, os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 from student import *

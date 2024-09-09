@@ -1,4 +1,6 @@
 """
+    @author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
     Same as in attack.py. But this time we are priviledging the majority group (Male group in this case).
 
     sex = argmin([abs(np.round(y_2) - y_2), (metric/y_2)*abs(np.round(y_1) - y_1)])

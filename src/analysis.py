@@ -1,3 +1,8 @@
+"""
+@author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
+This fail implement the function that evaluate models and compute their fairness metrics.
+"""
 import numpy as np
 import math
 

@@ -1,20 +1,14 @@
+"""
+    @author : thierno-mamoudou.sabaly@telecom-sudparis.eu
+
+    This file contains functions for the student needs as loading student dataset, training a student model, and so on.
+"""
+
 import tensorflow as tf
 from folktables import ACSDataSource, ACSEmployment, ACSIncome, BasicProblem, employment_filter, adult_filter
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-
-
-################################################################################################
-# @author : SABALY
-# In PATE the student is an entity with an unlabeled dataset. It sollicitate the teacher ensemble
-# for labeling partially it's data via an aggregator.
-
-# This file implement action a student would do alone as : loading its data, defining a model and
-# training his model.
-
-# They're differend loading
-################################################################################################
 
 def define_model(input_shape):
     tf.keras.utils.set_random_seed(0)
@@ -127,6 +121,7 @@ def load_unb_student_data(state, year=2018, horizon="1-Year", attr = "sex", alph
         )
     return (x_train, x_test, y_train, y_test, s_train, s_test)
 
+# %not used !
 def load_st_income(state, year=2018, horizon="1-Year", alpha=[]):
     data_src = ACSDataSource(survey_year=year, horizon=horizon, survey="person")
     acs_data = data_src.get_data(states=[state], download=True)

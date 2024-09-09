@@ -1,4 +1,6 @@
 """
+    @author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
     same as in attack2.py. But this time instead creating pole D_1 and D_2. We first run the black-box attact to get 
     the infered attribut *infered_S*. We take as D_1 = infered_S and D_2 = ~D_1 (flipping all the bits of D_1).
 
@@ -150,13 +152,13 @@ w_att_precision_st = original_data[[sensitive_column, new_column]].value_counts(
 w_att_precision = w_att_precision_st[0][0] + w_att_precision_st[1][1]
 
 print("Precision bb_attack on x_train ==> ", format(precision_bb_attack*100, ".2f"), "%")
-print(bb_precision_st)
+#print(bb_precision_st)
 
 print(">>> Simple vote")
 print("Attaque precision is ==> ", format(att_precision*100, ".2f"), "%")
-print(att_precision_st)
+#print(att_precision_st)
 
 print(">>> Weighted vote")
 print("Attaque precision is ==> ", format(w_att_precision*100, ".2f"), "%")
-print(w_att_precision_st)
+#print(w_att_precision_st)
 

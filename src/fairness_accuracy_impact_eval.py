@@ -1,3 +1,16 @@
+"""
+@author : hierno-mamoudou.sabaly@telecom-sudparis.eu
+
+First tests to evaluate teachers' fairness impact. 
+
+This program can be run using the script.sh file.
+
+It yield histograms of teachers fairness repartition and the the student's corresponding fairness with differents aggregation approach defined in
+the list "methods". It also shows the accuracy of the corresponding student in the true labels and the voted labels.
+
+PS: Older file may need some debugs if the running yield erors
+"""
+
 import sys, os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 from student import *
@@ -48,7 +61,7 @@ else:
 name = dataset + "_" + str(nb_fair_tchrs) + "_fair"+ ".png"
 
 # load student dataset
-(x_train, x_test, y_train, y_test, s_train, s_test) = load_student_data("AK")
+(x_train, x_test, y_train, y_test, s_train, s_test) = load_student_data("AK", attr="sex")
 
 """ labels, spd_ws = spd_aggregator(x_train, group=s_train)
 print(eod)
@@ -76,6 +89,10 @@ ax1.set_yticks(np.arange(0, 1.1, step=0.1))
 ax1.set_ylim([0,1.1])
 ax1.set_xlabel("Teachers")
 ax1.set_ylabel("Metrics")
+
+ax1.grid(True, linestyle='--', alpha=0.9)
+ax2.grid(True, linestyle='--', alpha=0.9)
+ax3.grid(True, linestyle='--', alpha=0.9)
 
 xticks = ["normal", "f", "uf", "w0"]
 methods = ["Normal", "Only fair", "Only unfair"]

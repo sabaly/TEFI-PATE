@@ -1,3 +1,9 @@
+"""
+@author : hierno-mamoudou.sabaly@telecom-sudparis.eu
+
+Same as for fairnessimpact_acsemployment.py but for adult dataset.
+"""
+
 from analysis import mean
 import numpy as np
 import pickle
@@ -80,6 +86,7 @@ s_train, s_test = np.asarray(s_train), np.asarray(s_test)
 st_model = RandomForestClassifier()
 
 conf = ["Normal", "Only fair", "Only unfair", "WV0", "WV1", "WV2"]
+conf = ["Normal", "WV0", "WV1", "WV2"]
 
 def get_agg(cf):
     if cf == "Normal":
@@ -99,7 +106,7 @@ def get_agg(cf):
 
 nb_teachers = 30
 
-def train_students(nb_teachers, nb_fair_tchrs, metric="SPD"):
+def train_students(nb_teachers, nb_fair_tchrs, metric="EOD"):
     loc_st_fairness = {}
     for cf in conf:
         loc_st_fairness[cf] = []
@@ -131,7 +138,8 @@ def train_students(nb_teachers, nb_fair_tchrs, metric="SPD"):
 
 nb_teacher = 30
 
-fig, ((ax1,ax2,ax3), (ax4,ax5,ax6)) = plt.subplots(2,3, sharey=True)
+#fig, ((ax1,ax2,ax3), (ax4,ax5,ax6)) = plt.subplots(2,3, sharey=True)
+fig, ((ax3,ax4), (ax5,ax6)) = plt.subplots(2,2, sharey=True)
 ax6.set_visible(False)
 
 def wrapper(args):
@@ -152,25 +160,34 @@ for cf in conf:
     if cf == "Normal":
         continue
     elif cf == "Only fair":
-        ax1.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf)
-        ax1.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0])
+        ax3.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf, marker='o')
+        ax3.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], marker='o')
     elif cf == "Only unfair":
-        ax2.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf)
-        ax2.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0])
+        ax4.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf, marker='o')
+        ax4.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], marker='o')
     elif cf == "WV0":
-        ax3.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf)
-        ax3.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0])
+        ax3.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf, marker='o')
+        ax3.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], marker='o')
     elif cf == "WV1":
-        ax4.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf)
-        ax4.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0])
+        ax4.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf, marker='o')
+        ax4.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], marker='o')
     elif cf == "WV2":
-        ax5.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf)
-        ax5.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], label="Normal")
+        ax5.plot(list(range(1, nb_teachers)), st_fairness[cf], color=colors[color_index], label=cf, marker='o')
+        ax5.plot(list(range(1, nb_teachers)), st_fairness["Normal"], color=colors[0], label="Normal", marker='o')
 
     color_index += 1
-fig.legend(loc="outside upper left",ncol=4)
-ax1.set_ylabel("Student fairness")
-ax5.set_xlabel("Number of fair teachers")
+fig.legend(loc="outside upper left",ncol=4, fontsize=12)
+#ax1.set_ylabel("Student fairness", fontsize=12)
+ax3.set_ylabel("Student fairness", fontsize=12)
+ax5.set_xlabel("Number of fair teachers", fontsize=12)
+
+#ax1.grid(True, linestyle='--', alpha=0.9)
+#ax2.grid(True, linestyle='--', alpha=0.9)
+ax3.grid(True, linestyle='--', alpha=0.9)
+ax4.grid(True, linestyle='--', alpha=0.9)
+ax5.grid(True, linestyle='--', alpha=0.9)
+ax6.grid(True, linestyle='--', alpha=0.9)
+
 path = "../img/archive_"+ str(nb_teachers) + "/"
 plt.savefig(path + "st_fairness_variations_" + str(nb_teachers) + "_teachers.png")
 

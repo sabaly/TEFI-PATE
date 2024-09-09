@@ -1,3 +1,12 @@
+"""
+@author: thierno-mamoudou.sabaly@telecom-sudparis.eu
+
+This program implements a simple attack consisting in training a model to predict sensitive attribut using the student label dataset
+without the sensitive column
+
+This file outputs the success rate of the attack.
+"""
+
 from teacher_ensemble import *
 from aggregator import *
 from student import *
