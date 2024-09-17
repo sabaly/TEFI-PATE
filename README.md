@@ -30,8 +30,8 @@ package, which provides a CKKS implementation along with various functionalities
 This README provides guidelines on how to use this repository. To compile some of the files, you may need the checkpoints (folders storing teacher models) available in my Google Drive: https://drive.google.com/file/d/1AEoGBt1tEGemBkKTpXS7kPYXsbdZAEEr/view?usp=drive_link. Place them in the TEFI-PATE/ folder.
 
 # Teacher Ensemble fairness impact experiments
-The relevant files are src/fairnessimpact_acsemployment.py and src/fairnessimpact_adult.py. These files generate curves showing how student fairness varies based on the number of fair teachers in the teacher ensemble. They can also be adapted to compare student fairness using standard aggregation versus weighted aggregation. 
+Experiment 01: The relevant files are ```src/fairnessimpact_acsemployment.py``` and ```src/fairnessimpact_adult.py```. These files generate curves showing how student fairness varies based on the number of fair teachers in the teacher ensemble. They can also be adapted to compare student fairness using standard aggregation versus weighted aggregation. 
 
-Experiment 02:  The relevant files are src/acsemployment_beta_impact.py and src/adult_beta_impact.py. This experiment demonstrates the impact of the $\beta$ parameter in our weight computation function.
+Experiment 02:  The relevant files are ```src/acsemployment_beta_impact.py``` and ```src/adult_beta_impact.py```. This experiment demonstrates the impact of the $\beta$ parameter in our weight computation function.
 
 
